@@ -4,8 +4,8 @@
 
 
 - tạo tool liên kết để làm việc với database
-+ liên kết với tool tạo DO TO để insert tự động vào table outbound sao khi tạo xong
-+ liên kết với tool new DO để insert tự động vào table inbound sau khi check DO mới
+  + liên kết với tool tạo DO TO để insert tự động vào table outbound sao khi tạo xong
+  + liên kết với tool new DO để insert tự động vào table inbound sau khi check DO mới
 - tạo tool liên kết database để auto NXT
 - bước tạo report : dùng SQL và powerbi
 - báo cáo luân chuyển
