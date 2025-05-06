@@ -22,3 +22,41 @@ Cost per shipment/unit Chi phí mỗi lô hàng hoặc mỗi đơn vị
 Freight charges breakdown (air, sea, ground) Phân tích chi phí vận chuyển (đường hàng không, đường biển, đường bộ)
 Thirdparty logistics (3PL) fees Chi phí thuê ngoài (3PL)
 
+
+
+
+1. Understand Business Requirements
+Define the goals: What questions does the report need to answer?
+Identify key metrics and dimensions.
+
+2. Prepare the Data
+Clean the data in SQL, Excel, or Power Query (remove duplicates, nulls, fix formats).
+Normalize tables if needed (split into lookup/detail tables).
+
+3. Import Data into Power BI
+Use “Get Data” to connect to your source (SQL, Excel, CSV, etc.).
+Load into the Power BI model.
+
+4. Model the Data
+Define relationships between tables.
+Create calculated columns and measures using DAX.
+Ensure one-to-many or many-to-one relationships are correct.
+
+5. Build Visuals
+Create visuals like bar charts, line graphs, tables, and slicers.
+Use filters and drill-downs to enable interactivity.
+
+6. Format the Report
+Apply themes, titles, legends, tooltips.
+Make sure it's readable and user-friendly.
+
+7. Validate the Data
+Compare your report with raw data to ensure accuracy.
+
+8. Publish to Power BI Service
+Share via workspaces.
+Set up scheduled refresh if needed.
+
+9. Share with Stakeholders
+Give access to end-users.
+Collect feedback and adjust.
