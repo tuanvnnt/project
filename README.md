@@ -60,3 +60,24 @@ Set up scheduled refresh if needed.
 9. Share with Stakeholders
 Give access to end-users.
 Collect feedback and adjust.
+
+
+
+
+Warehouse Staff
+Relies on the data to view daily workloads, track shipments, and organize inventory movements efficiently.
+
+Sales Team
+Uses the report to check product availability and delivery timelines, helping them manage customer expectations.
+
+Finance Team
+Gains visibility into logistics costs, such as transport, returns, and storage.
+
+Procurement Department
+Assesses supplier performance by analyzing delivery timelines and purchase order fulfillment.
+
+Executive Team
+Accesses summary dashboards that provide key performance indicators across regions, brands, or time periods to inform strategic decisions.
+
+IT Team
+Ensures that the data pipeline connecting SAP, SQLite, and Power BI remains functional and secure to keep reporting accurate and up to date.
