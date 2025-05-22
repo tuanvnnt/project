@@ -75,7 +75,7 @@ CALCULATE(
 )
 ```
 
-*(But usually, you just use the date table’s hierarchy in visuals.)*
+**(But usually, you just use the date table’s hierarchy in visuals.)*
 
 ---
 
