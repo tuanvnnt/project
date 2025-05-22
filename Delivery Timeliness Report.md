@@ -1,4 +1,4 @@
-## Delivery Timeliness Report
+# Delivery Timeliness Report
 
 - Purpose: Track delivery performance and identify delays.
 - Metrics:
@@ -13,7 +13,8 @@
 
 ---
 
-### 1. **Data Model & Relationships**
+## Data Model & Relationships
+
 - Use the `outbound` table as your main fact table.
 - Connect:
   - `outbound[shop_code]` → `shop[shop_code]`
@@ -24,13 +25,15 @@
 
 ### 2. **Key DAX Measures**
 
-**a. Delivery Time (Days) for each outbound record**
+a. Delivery Time (Days) for each outbound record**
+
 ```DAX
 Delivery Time (Days) = 
 DATEDIFF(outbound[order_date], outbound[delivery_date], DAY)
 ```
 
-**b. Average Delivery Time**
+b. Average Delivery Time**
+
 ```DAX
 Avg Delivery Time = 
 AVERAGEX(
@@ -41,6 +44,7 @@ AVERAGEX(
 
 **c. Count of Late Deliveries**  
 *(Assume late if delivery time > 2 days; adjust threshold as needed)*
+
 ```DAX
 Late Delivery Count = 
 CALCULATE(
@@ -74,6 +78,7 @@ CALCULATE(
 ---
 
 **Summary:**  
+
 - Build relationships to connect `outbound`, `shop`, and `province`.
 - Create DAX measures for delivery time and late deliveries.
 - Use KPI, line chart, and filtered table visuals as described.
