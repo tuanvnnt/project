@@ -1,7 +1,3 @@
-Based on your detailed database schema, here are some **Power BI (PBI) report suggestions** that can help a logistics manager effectively monitor and analyze operations:
-
----
-
 ### **1. Inbound and Outbound Flow Analysis**
    - **Purpose**: Monitor the flow of goods into and out of the system.
    - **Metrics**:
