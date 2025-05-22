@@ -1,6 +1,6 @@
 # REPORT DESCRIPTION
 
-1Inbound and Outbound Flow Analysis
+Inbound and Outbound Flow Analysis
 
 - Purpose: Monitor the flow of goods into and out of the system.
 - Metrics:
@@ -10,7 +10,7 @@
   - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
 - Bar chart comparing inbound and outbound quantities by shop (`shop_code`).
 
-2Delivery Timeliness Report
+Delivery Timeliness Report
 
 - Purpose: Track delivery performance and identify delays.
 - Metrics:
@@ -21,7 +21,8 @@
   - Line chart showing delivery performance over time.
   - Table of late deliveries by shop (`shop_code`) and region (`province`).
 
-3Stock Disparity and Pullback Report
+
+Stock Disparity and Pullback Report
 
 - Purpose: Identify mismatches between expected and actual stock levels and track pullbacks.
 - Metrics:
@@ -32,7 +33,7 @@
   - Table showing shops with the highest disparities.
   - Bar chart of pullback quantities by shop.
 
-4Shop Performance Report
+Shop Performance Report
 
 - Purpose: Evaluate the performance of individual shops.
 - Metrics:
@@ -42,7 +43,7 @@
   - Bar chart of inbound and outbound quantities by shop.
   - Map visualization using `latitude` and `longitude` from the `shop` table.
 
-5Inventory and Item Report
+Inventory and Item Report
 
 - Purpose: Track current stock levels and inventory movement.
 - Metrics:
@@ -53,7 +54,7 @@
   - Bar chart of stock levels by item.
   - Table showing stock levels, markdown prices, and full prices.
 
-6Defect and Issue Tracking Report
+Defect and Issue Tracking Report
 
 - Purpose: Monitor issues and resolutions in logistics.
 - Metrics:
@@ -63,7 +64,7 @@
   - Table of defects with their status and solutions.
   - KPI card for the number of unresolved issues.
 
-7Regional Logistics Report
+Regional Logistics Report
 
 - Purpose: Analyze logistics performance by region.
 - Metrics:
@@ -73,7 +74,7 @@
   - Map visualization of logistics performance by region.
   - Bar chart of inbound and outbound quantities by region.
 
-8Brand Performance Report
+Brand Performance Report
 
 - Purpose: Analyze performance by brand.
 - Metrics:
@@ -83,7 +84,7 @@
   - Pie chart of inbound and outbound quantities by brand.
   - Bar chart of pullback quantities by brand.
 
-9Daily Activity Report
+Daily Activity Report
 
 - Purpose: Track daily logistics activities and notes.
 - Metrics:
@@ -93,7 +94,7 @@
   - Line chart of daily quantities.
   - Table of diary entries with notes and staff.
 
-10Supplier and Purchase Order Report
+Supplier and Purchase Order Report
 
 - Purpose: Monitor supplier performance and purchase order status.
 - Metrics:
@@ -103,7 +104,7 @@
   - Table of purchase orders with their status.
   - Bar chart of purchase orders by supplier.
 
-11Material and Item Insights
+Material and Item Insights
 
 - Purpose: Analyze item materials and their distribution.
 - Metrics:
