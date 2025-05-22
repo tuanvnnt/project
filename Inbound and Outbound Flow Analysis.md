@@ -1,5 +1,15 @@
 # SAVE CONVERSATION
 
+## Inbound and Outbound Flow Analysis
+
+- Purpose: Monitor the flow of goods into and out of the system.
+- Metrics:
+  - Total inbound quantities (`box_qty`, `input_standard`, `input_taras_defect`, `input_paper_bag`, `input_visual_merchandising`).
+  - Total outbound quantities (`box_qty`, `product_qty`, `paper_bag_qty`).
+- Visuals:
+  - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
+- Bar chart comparing inbound and outbound quantities by shop (`shop_code`).
+
 Thank you for sharing your schema and your report idea! Here’s how you can approach **Inbound and Outbound Flow Analysis** in Power BI, step by step, tailored to your database:
 
 ---

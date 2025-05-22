@@ -1,25 +1,5 @@
 # REPORT DESCRIPTION
 
-## Inbound and Outbound Flow Analysis
-
-- Purpose: Monitor the flow of goods into and out of the system.
-- Metrics:
-  - Total inbound quantities (`box_qty`, `input_standard`, `input_taras_defect`, `input_paper_bag`, `input_visual_merchandising`).
-  - Total outbound quantities (`box_qty`, `product_qty`, `paper_bag_qty`).
-- Visuals:
-  - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
-- Bar chart comparing inbound and outbound quantities by shop (`shop_code`).
-
-## Delivery Timeliness Report
-
-- Purpose: Track delivery performance and identify delays.
-- Metrics:
-  - Difference between `order_date` and `delivery_date` in the `outbound` table.
-  - Count of late deliveries.
-- Visuals:
-  - KPI card for average delivery time.
-  - Line chart showing delivery performance over time.
-  - Table of late deliveries by shop (`shop_code`) and region (`province`).
 
 ## Stock Disparity and Pullback Report
 
