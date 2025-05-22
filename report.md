@@ -1,140 +1,116 @@
 # REPORT DESCRIPTION
 
-This is a file with a top-level heading
+1Inbound and Outbound Flow Analysis
 
-1. Inbound and Outbound Flow Analysis
-
-- **Purpose**: Monitor the flow of goods into and out of the system.
-- **Metrics**:
+- Purpose: Monitor the flow of goods into and out of the system.
+- Metrics:
   - Total inbound quantities (`box_qty`, `input_standard`, `input_taras_defect`, `input_paper_bag`, `input_visual_merchandising`).
   - Total outbound quantities (`box_qty`, `product_qty`, `paper_bag_qty`).
-- **Visuals**:
+- Visuals:
   - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
 - Bar chart comparing inbound and outbound quantities by shop (`shop_code`).
 
----
+2Delivery Timeliness Report
 
-### **2. Delivery Timeliness Report**
-
-- **Purpose**: Track delivery performance and identify delays.
-- **Metrics**:
+- Purpose: Track delivery performance and identify delays.
+- Metrics:
   - Difference between `order_date` and `delivery_date` in the `outbound` table.
   - Count of late deliveries.
-- **Visuals**:
+- Visuals:
   - KPI card for average delivery time.
   - Line chart showing delivery performance over time.
   - Table of late deliveries by shop (`shop_code`) and region (`province`).
 
----
+3Stock Disparity and Pullback Report
 
-### **3. Stock Disparity and Pullback Report**
-
-- **Purpose**: Identify mismatches between expected and actual stock levels and track pullbacks.
-- **Metrics**:
+- Purpose: Identify mismatches between expected and actual stock levels and track pullbacks.
+- Metrics:
   - Disparity in outbound (`disparity` column in `outbound` table).
   - Pullback quantities (`box_qty`, `good_qty` in `pullback` table).
-- **Visuals**:
+- Visuals:
   - Heatmap of stock disparities by shop and region.
   - Table showing shops with the highest disparities.
   - Bar chart of pullback quantities by shop.
 
----
+4Shop Performance Report
 
-### **4. Shop Performance Report**
-
-- **Purpose**: Evaluate the performance of individual shops.
-- **Metrics**:
+- Purpose: Evaluate the performance of individual shops.
+- Metrics:
   - Total inbound and outbound quantities per shop.
   - Pullback quantities per shop.
-- **Visuals**:
+- Visuals:
   - Bar chart of inbound and outbound quantities by shop.
   - Map visualization using `latitude` and `longitude` from the `shop` table.
 
----
+5Inventory and Item Report
 
-### **5. Inventory and Item Report**
-
-- **Purpose**: Track current stock levels and inventory movement.
-- **Metrics**:
+- Purpose: Track current stock levels and inventory movement.
+- Metrics:
   - Remaining stock levels by item (`item_list` table).
   - Total inbound and outbound quantities by item.
   - Markdown prices and full prices.
-- **Visuals**:
+- Visuals:
   - Bar chart of stock levels by item.
   - Table showing stock levels, markdown prices, and full prices.
 
----
+6Defect and Issue Tracking Report
 
-### **6. Defect and Issue Tracking Report**
-
-- **Purpose**: Monitor issues and resolutions in logistics.
-- **Metrics**:
+- Purpose: Monitor issues and resolutions in logistics.
+- Metrics:
   - Total defects logged (`issue` in `defect` table).
-  - Resolved vs. unresolved issues.
-- **Visuals**:
+  - Resolved vsunresolved issues.
+- Visuals:
   - Table of defects with their status and solutions.
   - KPI card for the number of unresolved issues.
 
----
+7Regional Logistics Report
 
-### **7. Regional Logistics Report**
-
-- **Purpose**: Analyze logistics performance by region.
-- **Metrics**:
+- Purpose: Analyze logistics performance by region.
+- Metrics:
   - Total inbound and outbound quantities by region (`region` in `province` table).
   - Pullback quantities by region.
-- **Visuals**:
+- Visuals:
   - Map visualization of logistics performance by region.
   - Bar chart of inbound and outbound quantities by region.
 
----
+8Brand Performance Report
 
-### **8. Brand Performance Report**
-
-- **Purpose**: Analyze performance by brand.
-- **Metrics**:
+- Purpose: Analyze performance by brand.
+- Metrics:
   - Total inbound and outbound quantities by brand (`brand_code`).
   - Pullback quantities by brand.
-- **Visuals**:
+- Visuals:
   - Pie chart of inbound and outbound quantities by brand.
   - Bar chart of pullback quantities by brand.
 
----
+9Daily Activity Report
 
-### **9. Daily Activity Report**
-
-- **Purpose**: Track daily logistics activities and notes.
-- **Metrics**:
+- Purpose: Track daily logistics activities and notes.
+- Metrics:
   - Total quantities (`box_qty`, `good_qty` in `diary` table) by date.
   - Notes and staff activity.
-- **Visuals**:
+- Visuals:
   - Line chart of daily quantities.
   - Table of diary entries with notes and staff.
 
----
+10Supplier and Purchase Order Report
 
-### **10. Supplier and Purchase Order Report**
-
-- **Purpose**: Monitor supplier performance and purchase order status.
-- **Metrics**:
+- Purpose: Monitor supplier performance and purchase order status.
+- Metrics:
   - Total purchase orders (`purchase_order_num` in `inbound` table).
   - Status of purchase orders (`status` in `inbound` table).
-- **Visuals**:
+- Visuals:
   - Table of purchase orders with their status.
   - Bar chart of purchase orders by supplier.
 
----
+11Material and Item Insights
 
-### **11. Material and Item Insights**
-
-- **Purpose**: Analyze item materials and their distribution.
-- **Metrics**:
+- Purpose: Analyze item materials and their distribution.
+- Metrics:
   - Total items by material (`material` in `item_material` table).
   - Stock levels by material.
-- **Visuals**:
+- Visuals:
   - Pie chart of items by material.
   - Table showing material details and associated items.
 
----
-
-These reports can be created in Power BI by connecting to your SQLite database and leveraging the relationships defined in your schema. Let me know if you need help with specific SQL queries, DAX measures, or Power BI setup!
+These reports can be created in Power BI by connecting to your SQLite database and leveraging the relationships defined in your schemaLet me know if you need help with specific SQL queries, DAX measures, or Power BI setup!
