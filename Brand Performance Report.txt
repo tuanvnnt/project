@@ -7,21 +7,6 @@ Visuals:
 Pie chart of inbound and outbound quantities by brand.
 Bar chart of pullback quantities by brand.
 
-
-
-Here’s how to approach building the **Brand Performance Report** in Power BI, step by step, based on your schema and your report description:
-
----
-
-## 1. **Data Model & Relationships**
-- Connect:
-  - `inbound[brand_code]` → `brand[brand_code]`
-  - `outbound[brand_code]` (if available) or via `shop[brand]` → `brand[brand_code]`
-  - `pullback` (join to `shop` to get brand, if needed)
-- Use `brand[brand_code]` as the key for brand analysis.
-
----
-
 ## 2. **Key Measures (DAX)**
 
 **Total Inbound Quantity by Brand**
