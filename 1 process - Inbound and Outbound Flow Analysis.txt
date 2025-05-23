@@ -1,0 +1,29 @@
+- Purpose: Monitor the flow of goods into and out of the system.
+- Metrics:
+  - Total inbound quantities (`box_qty`, `input_standard`, `input_taras_defect`, `input_paper_bag`, `input_visual_merchandising`).
+  - Total outbound quantities (`box_qty`, `product_qty`, `paper_bag_qty`).
+- Visuals:
+  - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
+- Bar chart comparing inbound and outbound quantities by shop (`shop_code`).
+
+Total Inbound Box = SUM(inbound[box_qty])
+Total Inbound Standard = SUM(inbound[input_standard])
+Total Inbound Defect = SUM(inbound[input_taras_defect])
+Total Inbound Paper Bag = SUM(inbound[input_paper_bag])
+Total Inbound Visual Merch = SUM(inbound[input_visual_merchandising])
+
+Total Outbound Box = SUM(outbound[box_qty])
+Total Outbound Product = SUM(outbound[product_qty])
+Total Outbound Paper Bag = SUM(outbound[paper_bag_qty])
+
+Inbound Box by Month = 
+CALCULATE(
+    [Total Inbound Box],
+    GROUPBY(date_tb, date_tb[Year], date_tb[Month_Number_Of_Year])
+)
+
+| Visual Type   | Axis/Legend           | Value(s)                                  | Filter/Slicer         |
+|---------------|-----------------------|-------------------------------------------|-----------------------|
+| Line Chart    | Date                  | Inbound/Outbound quantities               | Brand, Region, Area   |
+| Bar Chart     | Shop                  | Inbound/Outbound quantities               | Brand, Region, Area   |
+| Slicer        | -                     | -                                         | Brand, Date, Region   |
