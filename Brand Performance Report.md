@@ -1,0 +1,88 @@
+Brand Performance Report
+Purpose: Analyze performance by brand.
+Metrics:
+Total inbound and outbound quantities by brand (brand_code).
+Pullback quantities by brand.
+Visuals:
+Pie chart of inbound and outbound quantities by brand.
+Bar chart of pullback quantities by brand.
+
+
+
+Here’s how to approach building the **Brand Performance Report** in Power BI, step by step, based on your schema and your report description:
+
+---
+
+## 1. **Data Model & Relationships**
+- Connect:
+  - `inbound[brand_code]` → `brand[brand_code]`
+  - `outbound[brand_code]` (if available) or via `shop[brand]` → `brand[brand_code]`
+  - `pullback` (join to `shop` to get brand, if needed)
+- Use `brand[brand_code]` as the key for brand analysis.
+
+---
+
+## 2. **Key Measures (DAX)**
+
+**Total Inbound Quantity by Brand**
+```DAX
+Total Inbound by Brand = 
+SUM(inbound[box_qty])
+```
+
+**Total Outbound Quantity by Brand**
+```DAX
+Total Outbound by Brand = 
+SUM(outbound[box_qty])
+```
+*(If `outbound` does not have `brand_code`, use RELATED or LOOKUPVALUE to get brand from `shop`.)*
+
+**Total Pullback Quantity by Brand**
+```DAX
+Total Pullback by Brand = 
+CALCULATE(
+    SUM(pullback[box]),
+    FILTER(
+        pullback,
+        RELATED(shop[brand]) = brand[brand_code]
+    )
+)
+```
+*(Adjust the relationship if you use `from_shop` or `to_shop`.)*
+
+---
+
+## 3. **Visuals**
+
+- **Pie Chart:**  
+  - Legend: `brand[brand_code]` or `brand[brand_name]`
+  - Values: `Total Inbound by Brand`, `Total Outbound by Brand` (use two separate pies or a stacked donut)
+
+- **Bar Chart:**  
+  - Axis: `brand[brand_code]` or `brand[brand_name]`
+  - Value: `Total Pullback by Brand`
+
+---
+
+## 4. **Slicers/Filters**
+- By brand, date, or region if needed.
+
+---
+
+## 5. **Tips**
+- Make sure all relationships are set up in the Power BI model.
+- Use tooltips for more brand details.
+- You can use clustered bar/column charts for easy comparison.
+
+---
+
+**Summary Table for Your Report**
+
+| Visual Type | Axis/Legend      | Value(s)                      | Filter/Slicer         |
+|-------------|------------------|-------------------------------|-----------------------|
+| Pie Chart   | Brand            | Inbound, Outbound Quantities  | Brand, Date           |
+| Bar Chart   | Brand            | Pullback Quantities           | Brand, Date           |
+
+---
+
+Let me know if you want help with specific DAX, SQL queries, or Power BI visual setup for this report!
