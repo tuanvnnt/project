@@ -1,15 +1,7 @@
-Thanks for sharing your complete schema. Based on the structure, here are some practical and impactful reports to help improve your inventory process:
-
----
-
-### 📊 **Recommended Reports**
-
-#### 1. **Inbound vs. Outbound Flow Report**
+1. **Inbound vs. Outbound Flow Report**
 
 * **Purpose**: Identify overstocking or understocking by comparing received (inbound) vs. shipped (outbound) quantities per shop and brand.
 * **Key fields**: `inbound.box_qty`, `outbound.box_qty`, `shop_code`, `brand_code`, `delivery_date`, `good_receipt_date`
-
----
 
 #### 2. **Defect Rate Analysis**
 
@@ -17,15 +9,11 @@ Thanks for sharing your complete schema. Based on the structure, here are some p
 * **Key fields**: `defect.defect_qty`, `inbound.input_standard`, `item_list.barcode`, `brand_code`, `purchase_order_num`
 * **KPI**: Defect Rate = Total Defect Qty / Total Received Qty
 
----
-
 #### 3. **Stock Movement Summary**
 
 * **Purpose**: Track movement (inbound, outbound, pullback) per shop or brand over time.
 * **Tables**: `inbound`, `outbound`, `pullback`
 * **Segment by**: `shop_code`, `brand`, `pullback_date`, `good_receipt_date`, `delivery_date`
-
----
 
 #### 4. **Checklist Completion Compliance**
 
@@ -33,14 +21,10 @@ Thanks for sharing your complete schema. Based on the structure, here are some p
 * **Tables**: `inbound`, `outbound`, `diary`, `defect`
 * **Key field**: `checklist`
 
----
-
 #### 5. **Aging Report for Inbound Orders**
 
 * **Purpose**: Find POs where `good_receipt_date` is too delayed compared to `good_issue_date`.
 * **Fields**: `purchase_order_num`, `good_issue_date`, `good_receipt_date`, `status`, `shop_code`
-
----
 
 #### 6. **Shop-wise Inventory Activity Dashboard**
 
@@ -48,14 +32,10 @@ Thanks for sharing your complete schema. Based on the structure, here are some p
 * **Tables**: `inbound`, `outbound`, `diary`, `defect`
 * **Group by**: `shop_code`, `brand_code`
 
----
-
 #### 7. **Pullback Efficiency Report**
 
 * **Purpose**: Measure quantity pulled back vs. sent out, to analyze internal stock redistribution.
 * **Fields**: `pullback.box`, `pullback.qty`, `from_shop`, `to_shop`, `pullback_date`
-
----
 
 #### 8. **Item Performance Report**
 
@@ -63,7 +43,5 @@ Thanks for sharing your complete schema. Based on the structure, here are some p
 * **Tables**: `item_list`, `outbound`, `defect`
 * **Join on**: `barcode`
 * **KPIs**: Total outbound qty, total defect qty
-
----
 
 Would you like help generating SQL for any of these reports? Or do you want me to prioritize them based on the most urgent inventory issues you face?
