@@ -37,3 +37,15 @@ Join on: `barcode`
 KPIs: Total outbound qty, total defect qty
 
 Would you like help generating SQL for any of these reports? Or do you want me to prioritize them based on the most urgent inventory issues you face?
+
+
+| View Name            | Purpose                                                           | Used For Reports                             |
+| -------------------- | ----------------------------------------------------------------- | -------------------------------------------- |
+| `v_inbound_summary`  | Standardizes inbound data (PO, shop, date, box, qty, substandard) | Inbound, Inventory Flow, Defect Rate         |
+| `v_outbound_summary` | Standardizes outbound data (shop, date, box, qty, disparity)      | Outbound, Inventory Flow, Order Disparity    |
+| `v_pullback_summary` | Standardizes pullback data                                        | Inventory Flow, Shop Activity Log            |
+| `v_defect_summary`   | Pre-calculates defect quantity by PO                              | Defect Rate                                  |
+| `v_inventory_flow`   | Combines all movements: inbound, outbound, pullback               | Inventory Movement, Regional Trend, Shop Log |
+| `v_shop_reference`   | Shop + province + brand info (dimension table)                    | All reports needing shop info                |
+| `v_date_reference`   | Flattened date table with day/month/year                          | All reports needing trend/timeline           |
+
