@@ -1,54 +1,61 @@
-Here are the most common DAX functions (hàm DAX phổ biến) you should know for Power BI:
+Total Inbound Box (Ignore Filters) =
+CALCULATE(
+    SUM(inbound[box_qty]),
+    ALL(inbound)
+)
 
-SUM()
-Adds up all values in a column.
-(Cộng tất cả giá trị trong một cột)
 
-AVERAGE()
-Calculates the average of values in a column.
-(Tính trung bình các giá trị trong một cột)
 
-COUNT() / COUNTA() / COUNTROWS()
+Total Inbound Box (High Standard, Active Shop, Central Region) =
+CALCULATE(
+    SUM(inbound[box_qty]),
+    FILTER(
+        inbound,
+        inbound[input_standard] > 100 &&                        // Standard input > 100
+        RELATED(shop[status]) = "Active" &&                     // Shop status is Active
+        RELATED(shop[province_id]) = SELECTEDVALUE(province[id]) &&
+        province[region] = "Central"                            // Region is Central
+    )
+)
 
-COUNT(): Counts numbers in a column. (Đếm số trong một cột)
-COUNTA(): Counts non-empty values. (Đếm giá trị không rỗng)
-COUNTROWS(): Counts rows in a table. (Đếm số dòng trong bảng)
-DISTINCTCOUNT()
-Counts unique values in a column.
-(Đếm giá trị duy nhất trong một cột)
 
-CALCULATE()
-Changes the context of a calculation (tính toán theo điều kiện hoặc bộ lọc khác).
-(Thay đổi ngữ cảnh tính toán)
 
-FILTER()
-Returns a table that has been filtered.
-(Trả về bảng đã được lọc)
+Inbound Box Status =
+SWITCH(
+    TRUE(),
+    [Total Inbound Box] > 1000 && [Average Inbound Standard] > 80, "Excellent",
+    [Total Inbound Box] > 500 && [Average Inbound Standard] > 50, "Good",
+    [Total Inbound Box] > 0, "Needs Improvement",
+    "No Data"
+)
 
-ALL()
-Removes filters from a column or table.
-(Bỏ tất cả bộ lọc khỏi cột hoặc bảng)
 
-RELATED()
-Gets a value from a related table.
-(Lấy giá trị từ bảng liên quan)
+Total Revenue =
+SUMX(
+    sales,
+    sales[qty] * sales[price]
+)
 
-IF()
-Checks a condition and returns one value if true, another if false.
-(Kiểm tra điều kiện và trả về giá trị tương ứng)
 
-SWITCH()
-Checks multiple conditions and returns different results.
-(Kiểm tra nhiều điều kiện và trả về kết quả khác nhau)
-
-SUMX() / AVERAGEX()
-Iterates over a table and sums or averages an expression.
-(Lặp qua bảng và tính tổng hoặc trung bình)
 
 USERELATIONSHIP()
 Activates an inactive relationship for a calculation.
 (Kích hoạt mối quan hệ không hoạt động cho phép tính)
 
-Summary:
-These functions are the foundation (nền tảng) for most DAX calculations in Power BI.
-If you master them, you can build almost any measure or calculated column you need.
+
+
+Get Province Name =
+LOOKUPVALUE(
+    province[province],         // Column to return
+    province[id],               // Search column
+    RELATED(shop[province_id])  // Value to search for
+)
+
+Total Inbound for Selected Province =
+CALCULATE(
+    SUM(inbound[box_qty]),
+    TREATAS(
+        VALUES(province[id]),   // Values to match
+        shop[province_id]      // Column to apply filter
+    )
+)
