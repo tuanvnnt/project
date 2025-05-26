@@ -1,7 +1,3 @@
-1. Inbound vs. Outbound Flow Report
-Purpose: Identify overstocking or understocking by comparing received (inbound) vs. shipped (outbound) quantities per shop and brand.
-Key fields: `inbound.box_qty`, `outbound.box_qty`, `shop_code`, `brand_code`, `delivery_date`, `good_receipt_date`
-
  2. Defect Rate Analysis
 Purpose: Detect high-defect suppliers or products to reduce quality issues.
 Key fields: `defect.defect_qty`, `inbound.input_standard`, `item_list.barcode`, `brand_code`, `purchase_order_num`
