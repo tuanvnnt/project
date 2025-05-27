@@ -1,20 +1,4 @@
- 2. Defect Rate Analysis
-Purpose: Detect high-defect suppliers or products to reduce quality issues.
-Key fields: `defect.defect_qty`, `inbound.input_standard`, `item_list.barcode`, `brand_code`, `purchase_order_num`
-KPI: Defect Rate = Total Defect Qty / Total Received Qty
-
  3. Stock Movement Summary
 Purpose: Track movement (inbound, outbound, pullback) per shop or brand over time.
 Tables: `inbound`, `outbound`, `pullback`
 Segment by: `shop_code`, `brand`, `pullback_date`, `good_receipt_date`, `delivery_date`
-
-| View Name            | Purpose                                                           | Used For Reports                             |
-| -------------------- | ----------------------------------------------------------------- | -------------------------------------------- |
-| `v_inbound_summary`  | Standardizes inbound data (PO, shop, date, box, qty, substandard) | Inbound, Inventory Flow, Defect Rate         |
-| `v_outbound_summary` | Standardizes outbound data (shop, date, box, qty, disparity)      | Outbound, Inventory Flow, Order Disparity    |
-| `v_pullback_summary` | Standardizes pullback data                                        | Inventory Flow, Shop Activity Log            |
-| `v_defect_summary`   | Pre-calculates defect quantity by PO                              | Defect Rate                                  |
-| `v_inventory_flow`   | Combines all movements: inbound, outbound, pullback               | Inventory Movement, Regional Trend, Shop Log |
-| `v_shop_reference`   | Shop + province + brand info (dimension table)                    | All reports needing shop info                |
-| `v_date_reference`   | Flattened date table with day/month/year                          | All reports needing trend/timeline           |
-
