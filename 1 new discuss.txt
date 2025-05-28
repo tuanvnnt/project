@@ -1,4 +1,0 @@
- 3. Stock Movement Summary
-Purpose: Track movement (inbound, outbound, pullback) per shop or brand over time.
-Tables: `inbound`, `outbound`, `pullback`
-Segment by: `shop_code`, `brand`, `pullback_date`, `good_receipt_date`, `delivery_date`
