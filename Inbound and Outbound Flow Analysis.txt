@@ -4,7 +4,6 @@
   - Total outbound quantities (`box_qty`, `product_qty`, `paper_bag_qty`).
 - Visuals:
   - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
-- Bar chart comparing inbound and outbound quantities by shop (`shop_code`).
 
 Total Inbound Box = SUM(inbound[box_qty])
 Total Inbound Standard = SUM(inbound[input_standard])
