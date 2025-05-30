@@ -21,9 +21,3 @@ CALCULATE(
     [Total Inbound Box],
     GROUPBY(date_tb, date_tb[Year], date_tb[Month_Number_Of_Year])
 )
-
-| Visual Type   | Axis/Legend           | Value(s)                                  | Filter/Slicer         |
-|---------------|-----------------------|-------------------------------------------|-----------------------|
-| Line Chart    | Date                  | Inbound/Outbound quantities               | Brand, Region, Area   |
-| Bar Chart     | Shop                  | Inbound/Outbound quantities               | Brand, Region, Area   |
-| Slicer        | -                     | -                                         | Brand, Date, Region   |
