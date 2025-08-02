@@ -1,3 +1,6 @@
+Inbound and Outbound Flow Analysis
+
+
 - Purpose: Monitor the flow of goods into and out of the system.
 - Metrics:
   - Total inbound quantities (`box_qty`, `input_standard`, `input_taras_defect`, `input_paper_bag`, `input_visual_merchandising`).
