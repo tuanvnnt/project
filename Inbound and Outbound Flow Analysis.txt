@@ -23,3 +23,6 @@ CALCULATE(
     [Total Inbound Box],
     GROUPBY(date_tb, date_tb[Year], date_tb[Month_Number_Of_Year])
 )
+
+recommend chart:
+- line char in- out : spilit 2 line product (inbound = standart + defect + visual, outbound = product) + paper_bag, column y is qty, x is time (connect to date_tb)
