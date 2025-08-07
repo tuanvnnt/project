@@ -1,28 +1,84 @@
-Inbound and Outbound Flow Analysis
+1. Line Chart – Trend Over Time
+Purpose: Visualize how inbound and outbound quantities change over time.
 
+X-axis: post_date (from inbound and outbound)
 
-- Purpose: Monitor the flow of goods into and out of the system.
-- Metrics:
-  - Total inbound quantities (`box_qty`, `input_standard`, `input_taras_defect`, `input_paper_bag`, `input_visual_merchandising`).
-  - Total outbound quantities (`box_qty`, `product_qty`, `paper_bag_qty`).
-- Visuals:
-  - Line chart showing inbound (`good_issue_date`) and outbound (`delivery_date`) trends over time.
+Y-axis: Sum of quantities (e.g., input_standard for inbound, product_qty for outbound)
 
-Total Inbound Box = SUM(inbound[box_qty])
-Total Inbound Standard = SUM(inbound[input_standard])
-Total Inbound Defect = SUM(inbound[input_taras_defect])
-Total Inbound Paper Bag = SUM(inbound[input_paper_bag])
-Total Inbound Visual Merch = SUM(inbound[input_visual_merchandising])
+Legend: Flow type (Inbound, Outbound)
 
-Total Outbound Box = SUM(outbound[box_qty])
-Total Outbound Product = SUM(outbound[product_qty])
-Total Outbound Paper Bag = SUM(outbound[paper_bag_qty])
+Use UNION ALL view combining both tables with a flow_type column.
 
-Inbound Box by Month = 
-CALCULATE(
-    [Total Inbound Box],
-    GROUPBY(date_tb, date_tb[Year], date_tb[Month_Number_Of_Year])
-)
+🔷 2. Stacked Column Chart – Monthly Flow by Brand
+Purpose: Compare brand performance each month.
 
-recommend chart:
-- line char in- out : spilit 2 line product (inbound = standart + defect + visual, outbound = product) + paper_bag, column y is qty, x is time (connect to date_tb)
+X-axis: month (e.g., strftime('%Y-%m', post_date))
+
+Y-axis: Total quantity
+
+Legend: brand_name
+
+One chart for inbound, one for outbound (or combined with flow type in legend)
+
+🔷 3. Bar Chart – Top 10 Shops by Volume
+Purpose: Identify high-volume shops.
+
+Y-axis: shop_name
+
+X-axis: Sum of input_standard or product_qty
+
+Add slicer for region or brand
+
+🔷 4. Matrix Table – Flow by Brand & Region
+Purpose: Cross-analyze brand and region performance.
+
+Rows: brand_name
+
+Columns: region
+
+Values: Sum of input_standard, product_qty
+
+🔷 5. KPI Cards – Summary Metrics
+Purpose: Show high-level figures.
+
+Total Inbound (MTD, YTD)
+
+Total Outbound (MTD, YTD)
+
+Net Difference (Inbound – Outbound)
+
+% Growth vs Previous Month
+
+🔷 6. Scatter Plot – Defect Rate vs Inbound
+If defect data is involved
+
+X-axis: Sum of input_standard
+
+Y-axis: Defect rate (e.g., from defect table)
+
+Size: Number of defect reports
+
+Category: brand_name or shop_code
+
+🔷 7. Treemap – Volume by Item Type
+Purpose: See share of different item types.
+
+Group: item_type
+
+Value: Total quantity (inbound or outbound)
+
+🔷 8. Decomposition Tree – Drill-down Flow
+Purpose: Let user explore flow by custom paths.
+
+Root: Total Inbound or Outbound
+
+Drill Paths: Brand → Region → Shop → Item
+
+🔷 9. Area Chart – Inbound vs Outbound Cumulative
+Purpose: Compare cumulative trends over time.
+
+X-axis: Date
+
+Y-axis: Running total of quantities
+
+Legend: Flow type
